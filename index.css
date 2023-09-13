@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#guess-input {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px;
+  font-size: 18px;
+  width: 250px;
+  border: 1px solid #ccc;
+}
+
+#guess-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #0cbaba;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.container {
+  width: 50vw;
+  height: 54vh;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+  overflow: hidden;
+  top: 13vh;
+}
+
+.letter {
+  border: 1px solid black;
+  padding: 3px;
+  margin: 3px;
+  min-width: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.input-area {
+  margin: 30px;
+}
+
+#grid {
+  /* Estas tres lineas van a centrar el contenido verticalmente dentro de cada div */
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  gap: 45px;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.square {
+  height: 40px;
+  width: 40px;
+  border: 5px solid #0cbaba;
+}
