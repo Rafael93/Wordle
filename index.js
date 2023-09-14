@@ -1,13 +1,23 @@
 const input = document.getElementById("guess-input");
 const valor = input.value;
 const grid = document.getElementById("grid");
+const container = document.querySelector(".container");
 const colores = {
   verde: "green",
   amarrillo: "rgb(247, 230, 98)",
   gris: "rgb(224, 224, 224)",
 };
 let intentos = 6;
-let palabra = "APPLE";
+
+const url = "https://random-word-api.herokuapp.com/word?length=5&lang=es";
+let palabra = "";
+
+fetch(url)
+  .then((res) => res.json())
+  .then((res) => {
+    palabra = res[0].toUpperCase();
+  })
+  .catch((err) => console.log(err));
 
 window.addEventListener("load", init);
 
@@ -33,7 +43,10 @@ function intentar() {
   const casillas = document.querySelectorAll(".square");
   const INTENTO = leerIntento();
   if (INTENTO === palabra) {
-    console.log("GANASTE!");
+    const title = document.createElement("h1");
+    title.className = "winTitle";
+    title.innerHTML = "You win!!!";
+    container.appendChild(title);
     return;
   }
   for (let i in palabra) {
