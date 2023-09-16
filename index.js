@@ -42,6 +42,8 @@ function crearTablero() {
 function intentar() {
   const casillas = document.querySelectorAll(".square");
   const INTENTO = leerIntento();
+  const TITULO = document.querySelector("h1");
+  TITULO.classList.add("in-game");
   if (INTENTO === palabra) {
     const title = document.createElement("h1");
     title.className = "winTitle";
@@ -51,21 +53,18 @@ function intentar() {
   }
   for (let i in palabra) {
     if (INTENTO[i] === palabra[i]) {
-      console.log(INTENTO[i], "VERDE");
       const contenedorLetra = document.createElement("div");
       contenedorLetra.className = "letter-container";
       contenedorLetra.style.backgroundColor = colores.verde;
       contenedorLetra.innerHTML = INTENTO[i];
       casillas[i].appendChild(contenedorLetra);
     } else if (palabra.includes(INTENTO[i])) {
-      console.log(INTENTO[i], "AMARILLO");
       const contenedorLetra = document.createElement("div");
       contenedorLetra.className = "letter-container";
       contenedorLetra.style.backgroundColor = colores.amarrillo;
       contenedorLetra.innerHTML = INTENTO[i];
       casillas[i].appendChild(contenedorLetra);
     } else {
-      console.log(INTENTO[i], "GRIS");
       const contenedorLetra = document.createElement("div");
       contenedorLetra.className = "letter-container";
       contenedorLetra.style.backgroundColor = colores.gris;
@@ -76,7 +75,11 @@ function intentar() {
   intentos--;
 
   if (intentos == 0) {
-    console.log("PERDISTE!");
+    const title = document.createElement("h1");
+    title.className = "loseTitle";
+    title.innerHTML = "You Lose!!!";
+    container.appendChild(title);
+    return;
   }
 }
 function leerIntento() {
